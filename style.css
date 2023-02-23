@@ -1,0 +1,54 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  height: 200px;
+  background-color: rgb(117, 255, 242);
+}
+
+.footer {
+  height: 200px;
+  background-color: rgb(223, 68, 112);
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+
+.content {
+  overflow: hidden;
+}
+
+.flex {
+  display: flex;
+  /*
+
+  =====================================================
+  BUG IN FIREFOX 110 (no bug in Chrome, Edge or Safari)
+  =====================================================
+
+  If .flex has RELATIVE height and has no parents with absolute height,
+  .flex__items don't keep ratio of their images.
+
+  If we set for flex ABSOLUTE height (e.g. height: 200px) - bug disappears.
+
+  The only solution I found is to set ABSOULTE height via JS at the beginning
+  and after each window resize.
+
+  */
+  height: 100%; /* <- this is not work in FF */
+}
+
+.flex__item {
+  height: 100%;
+}
+
+.image {
+  height: 100%;
+  width: auto;
+}

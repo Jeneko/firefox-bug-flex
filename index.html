@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="header"></div>
+
+    <div class="content">
+      <div class="flex">
+        <div class="flex__item">
+          <img class="image" src="image.jpg" alt="">
+        </div>
+        <div class="flex__item">
+          <img class="image" src="image.jpg" alt="">
+        </div>
+        <div class="flex__item">
+          <img class="image" src="image.jpg" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="footer"></div>
+  </div>
+
+  <script>
+    copyElementHeight('.content', '.flex');
+
+    window.addEventListener('resize', function() {
+      copyElementHeight('.content', '.flex');
+    });
+
+    function copyElementHeight(selectorFrom, selectorTo) {
+      const elFrom = document.querySelector(selectorFrom);
+      const elTo   = document.querySelector(selectorTo);
+
+      if (elFrom && elTo) {
+        elTo.style.height = `${elFrom.getBoundingClientRect().height}px`;
+      }
+    }
+  </script>
+</body>
+
+</html>
